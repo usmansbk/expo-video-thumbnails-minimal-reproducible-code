@@ -9,11 +9,11 @@ import {
 } from "react-native";
 import * as VideoThumbnails from "expo-video-thumbnails";
 
-const defaultVideoUri =
+const sampleVideoUri =
   "https://github.com/user-attachments/assets/ec9a7752-6d21-43ae-a635-6205d3374db1";
 
 export default function App() {
-  const [videoUri, setVideoUri] = useState(defaultVideoUri);
+  const [videoUri, setVideoUri] = useState(sampleVideoUri);
   const [imageUri, setImageUri] = useState(null);
   const [error, setError] = useState(null);
 
