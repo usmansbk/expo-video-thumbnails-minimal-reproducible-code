@@ -1,5 +1,12 @@
 import { useCallback, useState } from "react";
-import { Button, StyleSheet, Text, View, Image, TextInput } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  Image,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import * as VideoThumbnails from "expo-video-thumbnails";
 
 const defaultVideoUri =
@@ -21,7 +28,11 @@ export default function App() {
   }, [videoUri]);
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      keyboardDismissMode="on-drag"
+      contentContainerStyle={styles.container}
+    >
+      <Text>Paste video URL:</Text>
       <TextInput
         style={styles.input}
         multiline
@@ -35,13 +46,13 @@ export default function App() {
       )}
       {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       <Button title="Generate Thumbnail" onPress={onPress} />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
